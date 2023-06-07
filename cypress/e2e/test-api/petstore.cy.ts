@@ -58,8 +58,7 @@ describe('test api petstore', () => {
             }
           });
           this.util = new EqualCount(result);
-          this.util.equalCountList();
-          const categories = result.reduce((categories, post) => categories.set(post.name, (categories.get(post.name) ?? 0) + 1), new Map<string, number>());
+          const categories = this.util.equalCountList();
             categories.forEach((count, category) => 
             count > 1 ? cy.log(`${category} (count: ${count})`): null);
         });

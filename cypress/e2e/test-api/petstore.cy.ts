@@ -1,5 +1,19 @@
+class EqualCount {
+  protected list: { id: number, name: string }[] ;
+  
+  constructor(list: { id: number, name: string }[] ) {
+    this.list = list;
+  }
+
+  public equalCountList() {
+      return this.list.reduce((names, data) => 
+      names.set(data.name, (names.get(data.name) ?? 0) + 1), new Map<string, number>());    
+  }
+}
 
 describe('test api petstore', () => {
+    let util:EqualCount;
+
     before(() => {
     cy.fixture('users').then((user) => {
         this.user = user
@@ -43,22 +57,11 @@ describe('test api petstore', () => {
               'name':data.name
             }
           });
+          this.util = new EqualCount(result);
+          this.util.equalCountList();
           const categories = result.reduce((categories, post) => categories.set(post.name, (categories.get(post.name) ?? 0) + 1), new Map<string, number>());
             categories.forEach((count, category) => 
             count > 1 ? cy.log(`${category} (count: ${count})`): null);
         });
       });
  });
-
- class EqualCount {
-    protected list: { id: number, name: string }[] ;
-    
-    constructor(list: { id: number, name: string }[] ) {
-      this.list = list;
-    }
-
-    public equalCountList() {
-        return this.list.reduce((names, data) => 
-        names.set(data.name, (names.get(data.name) ?? 0) + 1), new Map<string, number>());    
-    }
-}

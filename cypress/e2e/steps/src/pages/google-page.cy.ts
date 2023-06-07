@@ -14,7 +14,8 @@ export default class GooglePage {
     }
 
     fillSearch(text:string): void {
-        cy.get('input[name="q"]').type(`${text}`+"{enter}");
+        cy.get(this.inputSearch).type(`${text}`);
+        cy.get('form').submit();
       } 
 
     select() {

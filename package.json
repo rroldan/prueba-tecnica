@@ -4,7 +4,7 @@
   "description": "BDD, Cypress + Cucumber + Typescript",
   "main": "",
   "scripts": {
-    "cypress:open": "cypress open",
+    "cypress:open": "cypress open --e2e --browser chrome",
     "pretest": "rm -rf cypress/screenshots cypress/videos",
     "test": "cypress run",
     "tag:smoke": "cypress run --env tags='@smoke'",

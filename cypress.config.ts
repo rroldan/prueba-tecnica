@@ -21,7 +21,8 @@ async function setupNodeEvents(
 
 export default defineConfig({
   e2e: {
-    specPattern: '**/*.feature',
+    specPattern: ['**/*.feature', '**/test-api/*'],
+    baseUrl: 'https://petstore.swagger.io/v2/',
     setupNodeEvents,
   },
 })

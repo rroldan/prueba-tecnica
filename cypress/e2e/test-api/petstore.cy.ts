@@ -12,7 +12,6 @@ class EqualCount {
 }
 
 describe('test api petstore', () => {
-    let util:EqualCount;
 
     before(() => {
     cy.fixture('users').then((user) => {
@@ -57,10 +56,12 @@ describe('test api petstore', () => {
               'name':data.name
             }
           });
+          cy.log(result);
+
           this.util = new EqualCount(result);
-          const categories = this.util.equalCountList();
-            categories.forEach((count, category) => 
-            count > 1 ? cy.log(`${category} (count: ${count})`): null);
+         const categories = this.util.equalCountList();
+           categories.forEach((count, category) => 
+           count > 1 ? cy.log(`${category} (count: ${count})`): null);
         });
       });
  });

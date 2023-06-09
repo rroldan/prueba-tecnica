@@ -37,7 +37,7 @@ npm install
 
 # How to run the tests
 
-## Running tests (powershell)
+## Running tests
 
 ```bash
 npm test

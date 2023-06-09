@@ -23,6 +23,7 @@ export default defineConfig({
   e2e: {
     specPattern: ['**/*.feature', '**/test-api/*'],
     baseUrl: 'https://petstore.swagger.io/v2/',
+    video: false,
     setupNodeEvents,
   },
 })

@@ -5,7 +5,6 @@
   "main": "",
   "scripts": {
     "cypress:open": "cypress open --e2e --browser chrome",
-    "pretest": "rm cypress/screenshots cypress/videos",
     "test": "cypress run",
     "tag:smoke": "cypress run --env tags='@smoke'",
     "lint:eslint": "eslint .",

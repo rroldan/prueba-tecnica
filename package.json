@@ -5,12 +5,12 @@
   "main": "",
   "scripts": {
     "cypress:open": "cypress open --e2e --browser chrome",
-    "pretest": "rm -rf cypress/screenshots cypress/videos",
+    "pretest": "rm cypress/screenshots cypress/videos",
     "test": "cypress run",
     "tag:smoke": "cypress run --env tags='@smoke'",
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit",
-    "lint": "npm run lint:eslint; npm run lint:tsc",
+    "lint": "npm run lint:eslint && npm run lint:tsc",
     "lint:fix": "npm run lint:eslint -- --fix"
   },
   "keywords": [

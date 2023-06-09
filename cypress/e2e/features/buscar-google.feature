@@ -5,7 +5,7 @@ Feature: Buscar en Google
   Quiero poder realizar búsquedas en Google
   Para encontrar información relevante
 
-@obtener-infomacion
+@obtener-infomacion @smoke
 Scenario: Encontrar información relevante en una búsqueda
 Given estoy en la página de inicio de Google
 When  ingreso "automatización" en el campo de búsqueda

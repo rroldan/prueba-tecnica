@@ -56,12 +56,12 @@ describe('test api petstore', () => {
               'name':data.name
             }
           });
-          cy.log(result);
+          cy.log(JSON.stringify(result));
 
           this.util = new EqualCount(result);
          const categories = this.util.equalCountList();
            categories.forEach((count, category) => 
-           count > 1 ? cy.log(`${category} (count: ${count})`): null);
+           count > 1 && category != undefined ? cy.log(`${category} (count: ${count})`): null);
         });
       });
  });

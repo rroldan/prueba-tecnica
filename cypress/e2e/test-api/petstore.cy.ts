@@ -1,7 +1,7 @@
 class EqualCount {
-  protected list: { id: number, name: string }[] ;
+  protected list: { id: number, name?: string }[] ;
   
-  constructor(list: { id: number, name: string }[] ) {
+  constructor(list: { id: number, name?: string }[] ) {
     this.list = list;
   }
 
@@ -61,7 +61,7 @@ describe('test api petstore', () => {
           this.util = new EqualCount(result);
          const categories = this.util.equalCountList();
            categories.forEach((count, category) => 
-           count > 1 && category != undefined ? cy.log(`${category} (count: ${count})`): null);
+           count > 1 && category ? cy.log(`${category} (count: ${count})`): null);
         });
       });
  });

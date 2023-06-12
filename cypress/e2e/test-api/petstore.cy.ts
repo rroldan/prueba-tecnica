@@ -6,8 +6,12 @@ class EqualCount {
   }
 
   public equalCountList() {
-      return this.list.reduce((names, data) => 
-      names.set(data.name, (names.get(data.name) ?? 0) + 1), new Map<string, number>());    
+    const pets:Map<string, number> = this.list.reduce((names, data) => 
+      names.set(data.name, (names.get(data.name) ?? 0) + 1), new Map<string, number>());
+
+      pets.forEach((count, category) => 
+      count == 1 || !category ? pets.delete(category) : null);   
+      return pets; 
   }
 }
 
@@ -59,9 +63,8 @@ describe('test api petstore', () => {
           cy.log(JSON.stringify(result));
 
           this.util = new EqualCount(result);
-         const categories = this.util.equalCountList();
-           categories.forEach((count, category) => 
-           count > 1 && category ? cy.log(`${category} (count: ${count})`): null);
+          const pets:Map<string, number> = this.util.equalCountList();
+          cy.log(JSON.stringify(Object.fromEntries(pets)));
         });
       });
  });
